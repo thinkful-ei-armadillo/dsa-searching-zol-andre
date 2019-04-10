@@ -175,6 +175,32 @@ function maxProfit(arr) {
   return `You will make a profit of $${max} on day ${bestDay + 1} / 7`;
 }
 
+function eggDrop(floor) {
+  let n = 14;
+  let first = 14;
+  let i = 0;
+  let egg1 = true;
+  let egg2 = true;
+
+  while(egg1) {
+    i++;
+    if(n + (first-1) >= floor) {
+      egg1 = false;
+    } else {
+      n = n + (first-1);
+    }
+  }
+
+  while(egg2) {
+    n++;
+    if(n + (first-1) >= floor) {
+      egg2 = false;
+    }
+  }
+
+  return `Egg breaks on floor ${n}. Egg dropped ${i} times`;
+}
+
 
 
 function main() {
@@ -215,6 +241,8 @@ function main() {
   commandersBST.dsfPreOrder();
 
   console.log(maxProfit([128, 97, 121, 123, 98, 97, 105]));
+
+  console.log('EGG DROP:', eggDrop(100));
 }
 
 main();
